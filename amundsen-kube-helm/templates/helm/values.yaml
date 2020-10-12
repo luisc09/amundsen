@@ -58,9 +58,12 @@ search:
   ##
   serviceType: ClusterIP
   ##
-  ## search.elasticsearchEndpoint -- The name of the service hosting elasticsearch on your cluster, if you bring your own. You should only need to change this, if you don't use the version in this chart.
+  ## search.elasticsearch.endpoint -- The name of the service hosting elasticsearch on your cluster, if you bring your own. You should only need to change this, if you don't use the version in this chart.
   ##
-  elasticsearchEndpoint:
+  elasticsearch:
+    endpoint:
+#    user:
+#    password:
   ##
   ## search.image -- The image of the search container.
   ##

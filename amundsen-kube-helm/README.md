@@ -96,7 +96,7 @@ The following table lists the configurable parameters of the Amundsen charts and
 | provider | string | `"aws"` | The cloud provider the app is running in. Used to construct dns hostnames (on aws only). |
 | search.affinity | object | `{}` | Search pod specific affinity. |
 | search.annotations | object | `{}` | Search service specific tolerations. |
-| search.elasticsearchEndpoint | string | `nil` | The name of the service hosting elasticsearch on your cluster, if you bring your own. You should only need to change this, if you don't use the version in this chart. |
+| search.elasticsearch.endpoint | string | `nil` | The name of the service hosting elasticsearch on your cluster, if you bring your own. You should only need to change this, if you don't use the version in this chart. |
 | search.image | string | `"amundsendev/amundsen-search"` | The image of the search container. |
 | search.imageTag | string | `"2.0.0"` | The image tag of the search container. |
 | search.nodeSelector | object | `{}` | Search pod specific nodeSelector. |
