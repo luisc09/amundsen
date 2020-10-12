@@ -46,7 +46,11 @@ spec:
         - containerPort: 5001
         env:
         - name: PROXY_ENDPOINT
-          value: {{ if .Values.search.elasticsearchEndpoint }}{{ .Values.search.elasticsearchEndpoint }}{{ else }}{{ .Release.Name }}-elasticsearch-client.{{ .Release.Namespace }}.svc.cluster.local{{ end }}
+          value: {{ if .Values.search.elasticsearch.endpoint }}{{ .Values.search.elasticsearch.endpoint }}{{ else }}{{ .Release.Name }}-elasticsearch-client.{{ .Release.Namespace }}.svc.cluster.local{{ end }}
+        - name: CREDENTIALS_PROXY_USER
+          value: {{ if .Values.search.elasticsearch.user }}{{ .Values.search.elasticsearch.user }} {{ else }} elastic {{ end }}
+        - name: CREDENTIALS_PROXY_PASSWORD
+          value: {{ if .Values.search.elasticsearch.password }}{{ .Values.search.elasticsearch.password }} {{ else }} elastic {{ end }}
         livenessProbe:
           httpGet:
             path: "/healthcheck"
