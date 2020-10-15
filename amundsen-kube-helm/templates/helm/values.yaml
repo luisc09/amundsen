@@ -123,7 +123,10 @@ metadata:
   ##
   ## metadata.neo4jEndpoint -- The name of the service hosting neo4j on your cluster, if you bring your own. You should only need to change this, if you don't use the version in this chart.
   ##
-  neo4jEndpoint:
+  neo4j:
+    endpoint:
+  #  user: neo4j
+  #  password: neo4j
   ##
   ## metadata.image -- The image of the metadata container.
   ##
