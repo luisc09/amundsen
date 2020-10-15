@@ -184,10 +184,6 @@ frontEnd:
   ##
   serviceType: ClusterIP
   ##
-  ## frontEnd.host -- The hostname for the app
-  ##
-  host: localhost
-  ##
   ## frontEnd.image -- The image of the frontend container.
   ##
   image: amundsendev/amundsen-frontend
