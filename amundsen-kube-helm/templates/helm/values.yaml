@@ -46,6 +46,12 @@ tolerations: []
 podAnnotations: {}
 
 ##
+## secret -- Name of the secret that holds all password. This applies to search and metadata.
+##
+
+secret:
+
+##
 ## Configuration related to the search service.
 ##
 search:

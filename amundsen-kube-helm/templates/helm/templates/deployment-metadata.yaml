@@ -52,12 +52,15 @@ spec:
         env:
         - name: PROXY_HOST
           value: {{ if .Values.metadata.neo4j.endpoint }}{{ .Values.metadata.neo4j.endpoint }}{{ else }}bolt://neo4j.{{ .Release.Namespace }}.svc.cluster.local{{ end }}
+        {{ if .Values.metadata.neo4j.user }}
         - name: CREDENTIALS_PROXY_USER
-          value: {{ if .Values.metadata.neo4j.user }}{{ .Values.metadata.neo4j.user }} {{ else }} neo4j {{ end }}
+          value: {{ .Values.metadata.neo4j.user }}
         - name: CREDENTIALS_PROXY_PASSWORD
-          value: {{ if .Values.metadata.neo4j.password }}{{ .Values.metadata.neo4j.password }} {{ else }} neo4j {{ end }}
-        - name: PROXY_ENCRYPTED
-          value: "False"
+          valueFrom:
+            secretKeyRef:
+              name:  {{ .Values.secret }}
+              key: neo4j_password
+        {{ end }}
         {{- if .Values.frontEnd.oidcEnabled }}
         - name: FLASK_OIDC_CLIENT_SECRETS
           value: /etc/client_secrets.json
